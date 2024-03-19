@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mussio - Login</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div class="container">
+   <h1>Mussio</h1>
+    <form id="login-form">
+      <input id="email" type="email" id="email" placeholder="Enter email" required>
+      <input id="password" type="password" id="password" placeholder="Enter password" required>
+      <button type="submit">Login</button>
+      <label id="forgotpasslabel">Forgot Password?</label>
+      <p id="error-message"></p>
+      <p>Don't have an account? <a href="register.html">SignUp</a></p>
+    </form>
+  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlC5u8-nzRfkAtiHPuTnn5XjpHsrdNOK4",
+      authDomain: "login-with-firebase-883ae.firebaseapp.com",
+      projectId: "login-with-firebase-883ae",
+      storageBucket: "login-with-firebase-883ae.appspot.com",
+      messagingSenderId: "842180751694",
+      appId: "1:842180751694:web:7d50a0e1f6b8aebef72e1f",
+      databaseURL: "https://login-with-firebase-883ae-default-rtdb.firebaseio.com"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      let forgotpasslabel = document.getElementById('forgotpasslabel')
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // Redirect to home page
+          window.location.href = "homepage.html";
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // Display error message to the user
+          document.getElementById('error-message').innerText = 'Wrong Username or Password';
+        });
+    });
+
+    let ForgotPassword = () => {
+      sendPasswordResetEmail(auth , document.getElementById('email').value)
+      .then(() => {
+        alert('Password reset email sent. Check your inbox.');
+      })
+      .catch((error) => {
+        console.log(error.code);
+        console.log(errorMessage);
+      })
+    }
+    forgotpasslabel.addEventListener('click', ForgotPassword);
+  </script>
+</body>
+</html>

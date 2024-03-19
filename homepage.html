@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mussio</title>
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h2 class="log"><a href="homepage.html">
+                Mussio
+            </a></h2>
+
+            <label for="menu-item">
+                <i class="fas fa-bars"></i>
+            </label>
+
+
+            <div class="searchbar">
+                <i class="uil uil-search"></i>
+                <input type="search" placeholder="Search for Music">
+            </div>
+            <div class="Notification">
+                <a class="menu-item" id="notifications">
+                    <h3><a href=""><span><i class="uil uil-bell"></i></span></a></h3>
+            </div>
+            <div class="create">
+                <label class="btn btn-primary" for="Create-post">Create</label>
+                
+            </div>
+            <div class="profile">
+                <h3><a href=""><span><i class="uil uil-user"></i></span></a></h3>
+                </div>
+                
+        </div>
+    </nav>
+   
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+:root{
+    --color-white: hsl(255, 30%, 100%);
+    --color-light: hsl(252, 30%, 95%);
+    --color-gray: hsl(252, 15%, 65%);
+    --color-primary: hsl(252, 75%, 60%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-danger: hsl(0, 95%, 65%);
+    --color-dark:hsl(252, 30%, 17%);
+    --color-black: hsl(252, 30%, 10%);
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+}
+
+
+*,
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    color: var(--color-dark);
+    background: var(--color-light);
+    overflow-x: hidden;
+}
+i.fas.fa-bars {
+  margin-left: 10px;
+  cursor: pointer;
+  
+  
+}
+i.fas.fa-bars:hover {
+  color: black; 
+  transform: scale(1.1); 
+}
+/* General Styles */
+.container{
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.profile-photo{
+    width: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.notifications{
+    position: relative;
+}
+img{
+    display: block;
+    width: 100%;
+}
+
+.btn{
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+.btn-primary{
+    background: var(--color-primary);
+    color: white;
+}
+
+
+.text-bold{
+    font-weight: 500;
+}
+
+.text-muted{
+    color: var(--color-gray);
+}
+
+
+nav{
+    width: 100%;
+    background: var(--color-white);
+    padding: 0.7rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .search-bar{
+    background: var(--color-light);
+    border-radius: var(--border-radius);
+    padding: var(--search-padding);
+}
+nav .search-bar input[type="search"]{
+    background: transparent;
+    width: 30vw;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+nav .search-bar input[type="search"]::placeholder{
+    color: var(--color-gray);
+}
+nav .create{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+</style>
+</body>
+</html>
